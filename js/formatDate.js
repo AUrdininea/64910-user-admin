@@ -6,7 +6,7 @@ function formatDate(fecha){
     })
     const fechaFormateada = collator.format(fecha)
      
-    console.log(fechaFormateada)
+    // console.log(fechaFormateada)
   
     // Devolver una fecha de forma correcta
     return fechaFormateada

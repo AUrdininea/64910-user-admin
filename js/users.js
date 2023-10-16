@@ -113,24 +113,80 @@ const usersArray = [
  //Obtener el body de la tabla atravez del id
  const tableBody =document.getElementById('table-body')
 
- console.log(tableBody)
 
- //Iterar el array  y agregar un tr por cada alumno que tengamos
 
- usersArray.forEach(user =>{
+ //***Buscador en js**/*********/
+ const searchInput= document.querySelector('#search')
 
-   tableBody.innerHTML += `<tr class="table-body">
-   <td class="user-image">
-       <img src="${user.image}" alt=${user.fullname} avatar">
-   </td>
-   <td class="user-name">${user.fullname}</td>
-   <td class="user-email">${user.email}</td>
-   <td class="user-location">${user.location}</td>
-   <td class="user-age">${user.age}</td>
-   <td class="user-date">${formatDate(user.bornDate)}</td>
-</tr>`
+ //Filtro de usuarios
+ //con este codigo escuchamos cuando el usuario presiona una tecla
+ searchInput.addEventListener('keyup', (eventito)=>{
 
+  //obtener el valor el input y lo pasamos a minusculas
+     const inputValue = eventito.target.value.toLowerCase();
+  
+     //Buscar en todos los usuarios a aquellos donde su nombre tenga este texto
+   const usuariosFiltrados = usersArray.filter((usuario)=>{
+  
+     const nombre = usuario.fullname.toLowerCase()
+     
+     
+     return  nombre.includes(inputValue)
+
+     
+   })
+
+
+  //Pintar solo a los usuarios que hayan coincidido
+   pintarUsuarios(usuariosFiltrados)
+   console.log(usuariosFiltrados)
  })
+
+
+
+
+
+//***Pintar(agregar) y Borrar usuaria ****/
+ function pintarUsuarios(arrayPintar){
+  //Iterar el array  y agregar un tr por cada alumno que tengamos
+  tableBody.innerHTML = "";
+
+ arrayPintar.forEach((user, indiceActual) =>{
+
+    tableBody.innerHTML += `<tr class="table-body">
+    <td class="user-image">
+        <img src="${user.image}" alt=${user.fullname} avatar">
+    </td>
+    <td class="user-name">${user.fullname}</td>
+    <td class="user-email">${user.email}</td>
+    <td class="user-location">${user.location}</td>
+    <td class="user-age">${user.age}</td>
+    <td class="user-date">${formatDate(user.bornDate)}</td>
+    
+    <td>
+ 
+    <button class="action-btn btn-danger"
+     title="Borrar usuario"
+     onclick="borrarUsuario (${indiceActual})"
+     >
+    <i class="fa-solid fa-trash-can"></i>
+    </button>
+    </td>
+ </tr>`
+  })
+ }
+
+
+ pintarUsuarios(usersArray)
+
+///Como borrar  usuarios con una funcion
+
+ function borrarUsuario(indice){
+
+  usersArray.splice(indice,1)
+  pintarUsuarios(usersArray)
+
+ }
 
 
 
