@@ -113,10 +113,64 @@ const usersArray = [
  //Obtener el body de la tabla atravez del id
  const tableBody =document.getElementById('table-body')
 
-
+// console.log(tableBody)el console.log lo hacemos para asegurarnos que estamos llamando bien al elemento
 
  //***Buscador en js**/*********/
  const searchInput= document.querySelector('#search')
+
+
+
+
+ //****OBTENER EL FORMILARIO DESDE EL ID ASI  CREAMOS UNA VARIABLE CON EL NOBRE QUE NOS GUSTE*/
+   const userForm = document.querySelector('form#user-form')
+
+   //Aqui escucharemos el evento submit en el formulario
+userForm.addEventListener("submit",(evt)=> {
+
+ evt.preventDefault()
+
+  //Ahora agregaremos un nuevo usuario y para eso crearemos un objeto
+  const el = evt.target.elements; //en esta variable resumimos lo que obtuvimos en console.dir
+
+//Se deberia cortar la ejecucion de la funcion callback del evento submit cuando password y password2 sean distintos
+ if(el.password.value !== el.password2.value ){
+    alert(`Las contraseñas no coinciden`)
+      return;
+ }
+
+ //Si el emmail ya existe lo cortamos asi
+ const userExist = usersArray.find((user) =>{
+  if(user.email === el.email.value){
+    return true
+  }
+ })
+
+if(userExist){
+  alert(`El correo ya esta registrado`)
+  return
+}
+
+  const usuarioNuevo  = {
+     fullname: el.fullname.value,
+     age: el.age.valueAsNumber,
+     email: el.email.value,
+     password: el.password.value,
+     active:el.active.checked,
+     bornDate:new Date( el.bornDate.value).getTime(),
+     location: el.location.value,
+     id:crypto.randomUUID(),
+     image:el.image.value
+
+}
+
+console.log(usuarioNuevo)
+
+usersArray.push(usuarioNuevo)
+
+pintarUsuarios(usersArray)
+
+})
+
 
  //Filtro de usuarios
  //con este codigo escuchamos cuando el usuario presiona una tecla

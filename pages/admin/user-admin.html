@@ -16,23 +16,73 @@
         </i></button>
     </div>
     
-    <table class="user-table">
-        <thead>
-            <tr class="table-head">
-                <th>Avatar</th>
-                <th>Nombre Completo</th>
-                <th>Email</th>
-                <th>Localidad</th>
-                <th>Edad</th>
-                <th>Fecha Nacimiento</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="table-body" >
-            
-        </tbody>
+    <div class="admin-container">
+        <section class="form-container">
+            <form id="user-form">
+                <div class="input-group">
+                    <label for="fullname">Nombre Completo</label>
+                    <input type="text" name="fullname" id="fullname" required minlength="3" value="Andtony">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required minlength="3" value="1234">
+                </div>
+                <div class="input-group">
+                    <label for="password2"> Repetir Password</label>
+                    <input type="password" name="password2" id="password2"  minlength="3" >
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="and@gmail.com">
+                </div>
+                <div class="input-group">
+                    <select name="location" >
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="Córdoba">Córdoba</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="age">Edad</label>
+                    <input type="number" name="age" id="age" value="28">
+                </div>
+                <div class="input-group">
+                    <label for="bornDate">Fecha Nacimiento</label>
+                    <input type="date" name="bornDate" id="bornDate" value="2011-10-18">
+                </div>
+                <div class="input-group">
+                    <label for="image">Url de la imagen</label>
+                    <input type="url" name="image" id="image" value="https://c0.klipartz.com/pngpicture/411/490/gratis-png-lego-marvel-super-heroes-taskmaster-hulk-thor-iron-man-lego-marvel-super-heroes.png">
+                </div>
+                <!-- #checkbox -->
+                <div class="mb">
+                    <label for="active">Activo</label>
+                    <input type="checkbox" name="active" id="active">
+                </div>
+                <button type="submit" class="btn-form">Agregar Usuario</button>
 
-    </table>
+            </form>
+        </section>
+        <section class="table-container">
+            <table class="user-table">
+                <thead>
+                    <tr class="table-head">
+                        <th>Avatar</th>
+                        <th>Nombre Completo</th>
+                        <th>Email</th>
+                        <th>Localidad</th>
+                        <th>Edad</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    
+                </tbody>
+            </table>
+        </section>
+    </div>
     <script src="/js/formatDate.js" ></script>   
     <script src="/js/users.js" ></script>
 </body>
