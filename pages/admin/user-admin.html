@@ -17,15 +17,20 @@
     </div>
     
     <div class="admin-container">
+
         <section class="form-container">
+
             <form id="user-form">
+
+                 <input type="hidden" name="id">
+
                 <div class="input-group">
                     <label for="fullname">Nombre Completo</label>
-                    <input type="text" name="fullname" id="fullname" required minlength="3" value="Andtony">
+                    <input type="text" name="fullname" id="fullname" required minlength="3" >
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required minlength="3" value="1234">
+                    <input type="password" name="password" id="password" required minlength="3" >
                 </div>
                 <div class="input-group">
                     <label for="password2"> Repetir Password</label>
@@ -33,10 +38,11 @@
                 </div>
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" value="and@gmail.com">
+                    <input type="email" name="email" id="email" >
                 </div>
                 <div class="input-group">
-                    <select name="location" >
+                    <label for="location">Localidad</label>
+                    <select name="location"  >
                         <option value="Buenos Aires">Buenos Aires</option>
                         <option value="Mendoza">Mendoza</option>
                         <option value="San Luis">San Luis</option>
@@ -45,15 +51,15 @@
                 </div>
                 <div class="input-group">
                     <label for="age">Edad</label>
-                    <input type="number" name="age" id="age" value="28">
+                    <input type="number" name="age" id="age" >
                 </div>
                 <div class="input-group">
                     <label for="bornDate">Fecha Nacimiento</label>
-                    <input type="date" name="bornDate" id="bornDate" value="2011-10-18">
+                    <input type="date" name="bornDate" id="bornDate" >
                 </div>
                 <div class="input-group">
                     <label for="image">Url de la imagen</label>
-                    <input type="url" name="image" id="image" value="https://c0.klipartz.com/pngpicture/411/490/gratis-png-lego-marvel-super-heroes-taskmaster-hulk-thor-iron-man-lego-marvel-super-heroes.png">
+                    <input type="url" name="image" id="image" >
                 </div>
                 <!-- #checkbox -->
                 <div class="mb">
@@ -83,6 +89,7 @@
             </table>
         </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/formatDate.js" ></script>   
     <script src="/js/users.js" ></script>
 </body>

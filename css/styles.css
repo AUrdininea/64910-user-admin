@@ -5,8 +5,8 @@
 body{
     background-color: #222;
     min-height: 100dvh;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(500px,1fr)); */
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill,minmax(450px,1fr)); */
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
@@ -104,6 +104,10 @@ body{
     border-radius: 3px;
     cursor: pointer;
     border: none;
+
+    &.btn-edit{
+        background-color: green;
+    }
 
 }
 .mb {

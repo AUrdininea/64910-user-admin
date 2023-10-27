@@ -7,7 +7,7 @@ const usersArray = [
     active: true,
     password: 'password123',
     bornDate: new Date('1993-01-01').getTime(),
-    location: 'New York, NY',
+    location: 'Buenos Aires',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/7/71/Mk8iconyoshi.png?width=1280'
   },
   {
@@ -18,7 +18,7 @@ const usersArray = [
     active: false,
     password: 'password456',
     bornDate: new Date('1998-05-05').getTime(),
-    location: 'Los Angeles, CA',
+    location: 'Mendoza',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/f/f5/Mk8icondaisy.png?width=1280'
   },
   {
@@ -29,7 +29,7 @@ const usersArray = [
     active: true,
     password: 'password789',
     bornDate: new Date('1988-08-08').getTime(),
-    location: 'Miami, FL',
+    location: 'San Luis',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/1/1d/Mk8icontoadette.png?width=325'
   },
   {
@@ -40,7 +40,7 @@ const usersArray = [
     active: false,
     password: 'password101',
     bornDate: new Date('1983-04-10').getTime(),
-    location: 'Chicago, IL',
+    location: 'Córdoba',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/d/d1/Mk8iconrosalina.png?width=1280'
   },
   {
@@ -51,7 +51,7 @@ const usersArray = [
     active: true,
     password: 'password202',
     bornDate: new Date('1995-02-15').getTime(),
-    location: 'Houston, TX',
+    location: 'Buenos Aires',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/5/59/Mk8iconpeach.png?width=325'
   },
   {
@@ -62,53 +62,53 @@ const usersArray = [
     active: false,
     password: 'password303',
     bornDate: new Date('1989-07-07').getTime(),
-    location: 'San Francisco, CA',
+    location: 'Mendoza',
     image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/bf/Mk8iconmario.png?width=325'
   },
-  {
-    fullname: 'Samantha Davis',
-    age: 22,
-    email: 'samantha.davis@example.com',
-    id: '7',
-    active: true,
-    password: 'password404',
-    bornDate: new Date('2001-11-11').getTime(),
-    location: 'Boston, MA',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/2/2d/Mk8icondk.png?width=325'
-  },
-  {
-    fullname: 'James Moore',
-    age: 45,
-    email: 'james.moore@example.com',
-    id: '8',
-    active: false,
-    password: 'password505',
-    bornDate: new Date('1978-12-19').getTime(),
-    location: 'Dallas, TX',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/3/3a/Mk8iconkoopa.png?width=325'
-  },
-  {
-    fullname: 'Isabella Taylor',
-    age: 29,
-    email: 'isabella.taylor@example.com',
-    id: '9',
-    active: true,
-    password: 'password606',
-    bornDate: new Date('1994-06-24').getTime(),
-    location: 'San Diego, CA',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/3/3a/Mk8iconkoopa.png?width=325'
-  },
-  {
-    fullname: 'Ethan Johnson',
-    age: 31,
-    email: 'ethan.johnson@example.com',
-    id: '10',
-    active: false,
-    password: 'password707',
-    bornDate: new Date('1992-03-03').getTime(),
-    location: 'Denver, CO',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/b7/Mk8iconbowser.png?width=325'
-  }
+  // {
+  //   fullname: 'Samantha Davis',
+  //   age: 22,
+  //   email: 'samantha.davis@example.com',
+  //   id: '7',
+  //   active: true,
+  //   password: 'password404',
+  //   bornDate: new Date('2001-11-11').getTime(),
+  //   location: 'Boston, MA',
+  //   image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/2/2d/Mk8icondk.png?width=325'
+  // },
+  // {
+  //   fullname: 'James Moore',
+  //   age: 45,
+  //   email: 'james.moore@example.com',
+  //   id: '8',
+  //   active: false,
+  //   password: 'password505',
+  //   bornDate: new Date('1978-12-19').getTime(),
+  //   location: 'Dallas, TX',
+  //   image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/3/3a/Mk8iconkoopa.png?width=325'
+  // },
+  // {
+  //   fullname: 'Isabella Taylor',
+  //   age: 29,
+  //   email: 'isabella.taylor@example.com',
+  //   id: '9',
+  //   active: true,
+  //   password: 'password606',
+  //   bornDate: new Date('1994-06-24').getTime(),
+  //   location: 'San Diego, CA',
+  //   image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/3/3a/Mk8iconkoopa.png?width=325'
+  // },
+  // {
+  //   fullname: 'Ethan Johnson',
+  //   age: 31,
+  //   email: 'ethan.johnson@example.com',
+  //   id: '10',
+  //   active: false,
+  //   password: 'password707',
+  //   bornDate: new Date('1992-03-03').getTime(),
+  //   location: 'Denver, CO',
+  //   image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/b7/Mk8iconbowser.png?width=325'
+  // }
 ];
  //Obtener el body de la tabla atravez del id
  const tableBody =document.getElementById('table-body')
@@ -124,6 +124,9 @@ const usersArray = [
  //****OBTENER EL FORMILARIO DESDE EL ID ASI  CREAMOS UNA VARIABLE CON EL NOBRE QUE NOS GUSTE*/
    const userForm = document.querySelector('form#user-form')
 
+ //Cambiiar el nombre del boton a editar usuario para mejor experiencia del usuario
+ const submitBtn = userForm.querySelector('button[type=submit]')
+
    //Aqui escucharemos el evento submit en el formulario
 userForm.addEventListener("submit",(evt)=> {
 
@@ -133,24 +136,42 @@ userForm.addEventListener("submit",(evt)=> {
   const el = evt.target.elements; //en esta variable resumimos lo que obtuvimos en console.dir
 
 //Se deberia cortar la ejecucion de la funcion callback del evento submit cuando password y password2 sean distintos
- if(el.password.value !== el.password2.value ){
-    alert(`Las contraseñas no coinciden`)
-      return;
- }
+//  if(el.password.value !== el.password2.value ){
+//     alert(`Las contraseñas no coinciden`)
+//       return;
+//  }
 
- //Si el emmail ya existe lo cortamos asi
- const userExist = usersArray.find((user) =>{
+//  //Si el email ya existe lo cortamos asi e informamos
+ const emailExist = usersArray.find((user) =>{
   if(user.email === el.email.value){
     return true
   }
  })
 
-if(userExist){
-  alert(`El correo ya esta registrado`)
+if(emailExist && el.id.value != emailExist.id){
+  Swal.fire({
+    title:'El correo ya existe',
+    icon: 'error'
+  })
   return
 }
 
-  const usuarioNuevo  = {
+//como saber si es un usuario nuevo o es uno que ya existe
+//let id;
+// if(el.id.value){
+//   id = el.id.value
+// }else{
+//   id = crypto.randomUUID()
+// }
+//segunda opcion para para saber si el usuario existe o es nuevo
+//Con operador ternario
+//            condicion true-ya existe    false-es nuevo
+const id = el.id.value ? el.id.value : crypto.randomUUID()
+
+
+
+
+  const user = {
      fullname: el.fullname.value,
      age: el.age.valueAsNumber,
      email: el.email.value,
@@ -158,18 +179,58 @@ if(userExist){
      active:el.active.checked,
      bornDate:new Date( el.bornDate.value).getTime(),
      location: el.location.value,
-     id:crypto.randomUUID(),
+     id:id,
      image:el.image.value
 
 }
 
-console.log(usuarioNuevo)
+// Tenemos 2 posibles acciones a realizar
+//1-Al estar editando deberia reemplazar el usuario a editar con su info actualizada
+//2-Agregar un usuario nuevo
+if(el.id.value){
+   //Editando
+   const indice = usersArray.findIndex(usuario =>{
+    if(usuario.id === el.id.value){
+      return true
+    }
+     
+   })
+    //Reemplazo el usuario con lops datos nuevos del formilario
+   usersArray[indice] = user
+   Swal.fire({
+    title:'Usuario Editado',
+    text:'Los datos fueron actualizados correctamente',
+    icon:'success',
+    timer: 1000
+   })
 
-usersArray.push(usuarioNuevo)
+   
+
+}else{
+   //Agragando usuario nuevo
+  usersArray.push(user)
+  Swal.fire({
+    title:'Usuario Agregado',
+    text:'Usuario creado correctamente',
+    icon:'success',
+    timer: 1000
+  })
+}
+
 
 pintarUsuarios(usersArray)
 
+resetearFormulario()
 })
+
+function resetearFormulario(){
+  userForm.reset()
+  userForm.elements.password.disabled = false
+  userForm.elements.password2.disabled = false
+  submitBtn.classList.remove('btn-edit')
+  submitBtn.innerText = 'Agregar usuario'
+  userForm.elements.fullname.focus()
+}
 
 
  //Filtro de usuarios
@@ -221,10 +282,17 @@ pintarUsuarios(usersArray)
  
     <button class="action-btn btn-danger"
      title="Borrar usuario"
-     onclick="borrarUsuario (${indiceActual})"
+     onclick="borrarUsuario ('${user.id}')"
      >
     <i class="fa-solid fa-trash-can"></i>
     </button>
+
+    <button class="action-btn"
+             title="Editar usuario"
+             onclick = "editarUsuario('${user.id}')">
+
+             <i class="fa-solid fa-pen-to-square"></i>
+             </button> 
     </td>
  </tr>`
   })
@@ -233,14 +301,73 @@ pintarUsuarios(usersArray)
 
  pintarUsuarios(usersArray)
 
-///Como borrar  usuarios con una funcion
+///**Como borrar  usuarios con una funcion**
 
- function borrarUsuario(indice){
+ function borrarUsuario(ID){
+
+  const confirmDelete = confirm('Realmente desea borrar este usuario')
+
+  if(confirm){
+
+  const indice = usersArray.findIndex(user => user.id === ID)
 
   usersArray.splice(indice,1)
   pintarUsuarios(usersArray)
+  }
 
  }
+
+  //**Como editar un usuario**
+ function editarUsuario(id){
+  //Buscar un usuario con ese id y obtenerlo
+  const userEdit =usersArray.find((usuario) => {
+//esta funcion debe devolver un true si coincide cel id con el usuario buscado
+if(usuario.id === id){
+  return true ;
+}
+
+})
+  //Indicar que el usuario no fue encontrado
+  if(userEdit === undefined){
+    
+    Swal.fire('Error al editar','No se pudo editar el usuario','error' )
+    return
+  }
+
+   console.log(userEdit)
+
+  //Rellenar el formulario con los datos del usuario a editar
+
+     const el = userForm.elements;
+     
+     el.id.value = userEdit.id;//input oculto para poder editar ocultando el id
+
+     el.age.value = userEdit.age
+     el.fullname.value = userEdit.fullname
+     el.email.value = userEdit.email
+     el.image.value = userEdit.image
+     el.location.value = userEdit.location
+     el.active.checked = userEdit.active
+     //Deshabilatr input de contraseña
+     el.password.value = userEdit.password
+     el.password.disabled = true
+     el.password2.value = userEdit.password
+     el.password2.disabled = true
+
+    el.bornDate.value = formatInputDate(userEdit.bornDate)
+  
+  //Cambiiar el nombre  y el color del boton al editar usuario
+  
+
+
+ submitBtn.classList.add('btn-edit')//color
+ submitBtn.innerText = 'Editar usuario'//nombre
+       
+ }
+
+
+
+ 
 
 
 
