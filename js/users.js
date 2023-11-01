@@ -1,4 +1,4 @@
-const usersArray = [
+const usersStart = [
   {
     fullname: 'John Doe',
     age: 30,
@@ -110,120 +110,132 @@ const usersArray = [
   //   image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/b7/Mk8iconbowser.png?width=325'
   // }
 ];
- //Obtener el body de la tabla atravez del id
- const tableBody =document.getElementById('table-body')
+
+
+
+if (localStorage.getItem("users") === null) {
+  localStorage.setItem("users", JSON.stringify(usersStart))
+}
+
+const usersArray = JSON.parse(localStorage.getItem("users"))
+
+
+
+//Obtener el body de la tabla atravez del id
+const tableBody = document.getElementById('table-body')
 
 // console.log(tableBody)el console.log lo hacemos para asegurarnos que estamos llamando bien al elemento
 
- //***Buscador en js**/*********/
- const searchInput= document.querySelector('#search')
+//***Buscador en js**/*********/
+const searchInput = document.querySelector('#search')
 
 
 
 
- //****OBTENER EL FORMILARIO DESDE EL ID ASI  CREAMOS UNA VARIABLE CON EL NOBRE QUE NOS GUSTE*/
-   const userForm = document.querySelector('form#user-form')
+//****OBTENER EL FORMILARIO DESDE EL ID ASI  CREAMOS UNA VARIABLE CON EL NOBRE QUE NOS GUSTE*/
+const userForm = document.querySelector('form#user-form')
 
- //Cambiiar el nombre del boton a editar usuario para mejor experiencia del usuario
- const submitBtn = userForm.querySelector('button[type=submit]')
+//Cambiiar el nombre del boton a editar usuario para mejor experiencia del usuario
+const submitBtn = userForm.querySelector('button[type=submit]')
 
-   //Aqui escucharemos el evento submit en el formulario
-userForm.addEventListener("submit",(evt)=> {
+//Aqui escucharemos el evento submit en el formulario
+userForm.addEventListener("submit", (evt) => {
 
- evt.preventDefault()
+  evt.preventDefault()
 
   //Ahora agregaremos un nuevo usuario y para eso crearemos un objeto
   const el = evt.target.elements; //en esta variable resumimos lo que obtuvimos en console.dir
 
-//Se deberia cortar la ejecucion de la funcion callback del evento submit cuando password y password2 sean distintos
-//  if(el.password.value !== el.password2.value ){
-//     alert(`Las contraseñas no coinciden`)
-//       return;
-//  }
+  //Se deberia cortar la ejecucion de la funcion callback del evento submit cuando password y password2 sean distintos
+  //  if(el.password.value !== el.password2.value ){
+  //     alert(`Las contraseñas no coinciden`)
+  //       return;
+  //  }
 
-//  //Si el email ya existe lo cortamos asi e informamos
- const emailExist = usersArray.find((user) =>{
-  if(user.email === el.email.value){
-    return true
-  }
- })
-
-if(emailExist && el.id.value != emailExist.id){
-  Swal.fire({
-    title:'El correo ya existe',
-    icon: 'error'
+  //  //Si el email ya existe lo cortamos asi e informamos
+  const emailExist = usersArray.find((user) => {
+    if (user.email === el.email.value) {
+      return true
+    }
   })
-  return
-}
 
-//como saber si es un usuario nuevo o es uno que ya existe
-//let id;
-// if(el.id.value){
-//   id = el.id.value
-// }else{
-//   id = crypto.randomUUID()
-// }
-//segunda opcion para para saber si el usuario existe o es nuevo
-//Con operador ternario
-//            condicion true-ya existe    false-es nuevo
-const id = el.id.value ? el.id.value : crypto.randomUUID()
+  if (emailExist && el.id.value != emailExist.id) {
+    Swal.fire({
+      title: 'El correo ya existe',
+      icon: 'error'
+    })
+    return
+  }
+
+  //como saber si es un usuario nuevo o es uno que ya existe
+  //let id;
+  // if(el.id.value){
+  //   id = el.id.value
+  // }else{
+  //   id = crypto.randomUUID()
+  // }
+  //segunda opcion para para saber si el usuario existe o es nuevo
+  //Con operador ternario
+  //            condicion true-ya existe    false-es nuevo
+  const id = el.id.value ? el.id.value : crypto.randomUUID()
 
 
 
 
   const user = {
-     fullname: el.fullname.value,
-     age: el.age.valueAsNumber,
-     email: el.email.value,
-     password: el.password.value,
-     active:el.active.checked,
-     bornDate:new Date( el.bornDate.value).getTime(),
-     location: el.location.value,
-     id:id,
-     image:el.image.value
+    fullname: el.fullname.value,
+    age: el.age.valueAsNumber,
+    email: el.email.value,
+    password: el.password.value,
+    active: el.active.checked,
+    bornDate: new Date(el.bornDate.value).getTime(),
+    location: el.location.value,
+    id: id,
+    image: el.image.value
 
-}
+  }
 
-// Tenemos 2 posibles acciones a realizar
-//1-Al estar editando deberia reemplazar el usuario a editar con su info actualizada
-//2-Agregar un usuario nuevo
-if(el.id.value){
-   //Editando
-   const indice = usersArray.findIndex(usuario =>{
-    if(usuario.id === el.id.value){
-      return true
-    }
-     
-   })
+  // Tenemos 2 posibles acciones a realizar
+  //1-Al estar editando deberia reemplazar el usuario a editar con su info actualizada
+  //2-Agregar un usuario nuevo
+  if (el.id.value) {
+    //Editando
+    const indice = usersArray.findIndex(usuario => {
+      if (usuario.id === el.id.value) {
+        return true
+      }
+
+    })
     //Reemplazo el usuario con lops datos nuevos del formilario
-   usersArray[indice] = user
-   Swal.fire({
-    title:'Usuario Editado',
-    text:'Los datos fueron actualizados correctamente',
-    icon:'success',
-    timer: 1000
-   })
-
-   
-
-}else{
-   //Agragando usuario nuevo
-  usersArray.push(user)
-  Swal.fire({
-    title:'Usuario Agregado',
-    text:'Usuario creado correctamente',
-    icon:'success',
-    timer: 1000
-  })
-}
+    usersArray[indice] = user
+    Swal.fire({
+      title: 'Usuario Editado',
+      text: 'Los datos fueron actualizados correctamente',
+      icon: 'success',
+      timer: 1000
+    })
 
 
-pintarUsuarios(usersArray)
 
-resetearFormulario()
+  } else {
+    //Agragando usuario nuevo
+    usersArray.push(user)
+    Swal.fire({
+      title: 'Usuario Agregado',
+      text: 'Usuario creado correctamente',
+      icon: 'success',
+      timer: 1000
+    })
+  }
+
+
+  pintarUsuarios(usersArray)
+
+  resetearFormulario()
+  actualizarLocalStorage()
 })
 
-function resetearFormulario(){
+function resetearFormulario() {
   userForm.reset()
   userForm.elements.password.disabled = false
   userForm.elements.password2.disabled = false
@@ -233,40 +245,40 @@ function resetearFormulario(){
 }
 
 
- //Filtro de usuarios
- //con este codigo escuchamos cuando el usuario presiona una tecla
- searchInput.addEventListener('keyup', (eventito)=>{
+//Filtro de usuarios
+//con este codigo escuchamos cuando el usuario presiona una tecla
+searchInput.addEventListener('keyup', (eventito) => {
 
   //obtener el valor el input y lo pasamos a minusculas
-     const inputValue = eventito.target.value.toLowerCase();
-  
-     //Buscar en todos los usuarios a aquellos donde su nombre tenga este texto
-   const usuariosFiltrados = usersArray.filter((usuario)=>{
-  
-     const nombre = usuario.fullname.toLowerCase()
-     
-     
-     return  nombre.includes(inputValue)
+  const inputValue = eventito.target.value.toLowerCase();
 
-     
-   })
+  //Buscar en todos los usuarios a aquellos donde su nombre tenga este texto
+  const usuariosFiltrados = usersArray.filter((usuario) => {
+
+    const nombre = usuario.fullname.toLowerCase()
+
+
+    return nombre.includes(inputValue)
+
+
+  })
 
 
   //Pintar solo a los usuarios que hayan coincidido
-   pintarUsuarios(usuariosFiltrados)
-   console.log(usuariosFiltrados)
- })
+  pintarUsuarios(usuariosFiltrados)
+  console.log(usuariosFiltrados)
+})
 
 
 
 
 
 //***Pintar(agregar) y Borrar usuaria ****/
- function pintarUsuarios(arrayPintar){
+function pintarUsuarios(arrayPintar) {
   //Iterar el array  y agregar un tr por cada alumno que tengamos
   tableBody.innerHTML = "";
 
- arrayPintar.forEach((user, indiceActual) =>{
+  arrayPintar.forEach((user, indiceActual) => {
 
     tableBody.innerHTML += `<tr class="table-body">
     <td class="user-image">
@@ -296,78 +308,78 @@ function resetearFormulario(){
     </td>
  </tr>`
   })
- }
+}
 
+function actualizarLocalStorage() {
+  localStorage.setItem("users", JSON.stringify(usersArray))
+}
 
- pintarUsuarios(usersArray)
+pintarUsuarios(usersArray)
 
 ///**Como borrar  usuarios con una funcion**
 
- function borrarUsuario(ID){
+function borrarUsuario(ID) {
 
   const confirmDelete = confirm('Realmente desea borrar este usuario')
 
-  if(confirm){
+  if (confirm) {
 
-  const indice = usersArray.findIndex(user => user.id === ID)
+    const indice = usersArray.findIndex(user => user.id === ID)
 
-  usersArray.splice(indice,1)
-  pintarUsuarios(usersArray)
+    usersArray.splice(indice, 1)
+    pintarUsuarios(usersArray)
+    actualizarLocalStorage()
   }
 
- }
-
-  //**Como editar un usuario**
- function editarUsuario(id){
-  //Buscar un usuario con ese id y obtenerlo
-  const userEdit =usersArray.find((usuario) => {
-//esta funcion debe devolver un true si coincide cel id con el usuario buscado
-if(usuario.id === id){
-  return true ;
 }
 
-})
+//**Como editar un usuario**
+function editarUsuario(id) {
+  //Buscar un usuario con ese id y obtenerlo
+  const userEdit = usersArray.find((usuario) => {
+    //esta funcion debe devolver un true si coincide cel id con el usuario buscado
+    if (usuario.id === id) {
+      return true;
+    }
+
+  })
   //Indicar que el usuario no fue encontrado
-  if(userEdit === undefined){
-    
-    Swal.fire('Error al editar','No se pudo editar el usuario','error' )
+  if (userEdit === undefined) {
+
+    Swal.fire('Error al editar', 'No se pudo editar el usuario', 'error')
     return
   }
 
-   console.log(userEdit)
+  console.log(userEdit)
 
   //Rellenar el formulario con los datos del usuario a editar
 
-     const el = userForm.elements;
-     
-     el.id.value = userEdit.id;//input oculto para poder editar ocultando el id
+  const el = userForm.elements;
 
-     el.age.value = userEdit.age
-     el.fullname.value = userEdit.fullname
-     el.email.value = userEdit.email
-     el.image.value = userEdit.image
-     el.location.value = userEdit.location
-     el.active.checked = userEdit.active
-     //Deshabilatr input de contraseña
-     el.password.value = userEdit.password
-     el.password.disabled = true
-     el.password2.value = userEdit.password
-     el.password2.disabled = true
+  el.id.value = userEdit.id;//input oculto para poder editar ocultando el id
 
-    el.bornDate.value = formatInputDate(userEdit.bornDate)
-  
+  el.age.value = userEdit.age
+  el.fullname.value = userEdit.fullname
+  el.email.value = userEdit.email
+  el.image.value = userEdit.image
+  el.location.value = userEdit.location
+  el.active.checked = userEdit.active
+  //Deshabilatr input de contraseña
+  el.password.value = userEdit.password
+  el.password.disabled = true
+  el.password2.value = userEdit.password
+  el.password2.disabled = true
+
+  el.bornDate.value = formatInputDate(userEdit.bornDate)
+
   //Cambiiar el nombre  y el color del boton al editar usuario
-  
-
-
- submitBtn.classList.add('btn-edit')//color
- submitBtn.innerText = 'Editar usuario'//nombre
-       
- }
 
 
 
- 
+  submitBtn.classList.add('btn-edit')//color
+  submitBtn.innerText = 'Editar usuario'//nombre
+
+}
 
 
 
@@ -388,4 +400,7 @@ if(usuario.id === id){
 
 
 
-  
+
+
+
+
