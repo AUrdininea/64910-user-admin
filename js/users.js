@@ -2,13 +2,14 @@ const usersStart = [
   {
     fullname: 'John Doe',
     age: 30,
-    email: 'john.doe@example.com',
+    email: 'admin@admin.com',
     id: '1',
     active: true,
-    password: 'password123',
+    password: 'admin',
     bornDate: new Date('1993-01-01').getTime(),
     location: 'Buenos Aires',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/7/71/Mk8iconyoshi.png?width=1280'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/7/71/Mk8iconyoshi.png?width=1280',
+    role:'ADMIN_ROLE'
   },
   {
     fullname: 'Jane Doe',
@@ -19,7 +20,8 @@ const usersStart = [
     password: 'password456',
     bornDate: new Date('1998-05-05').getTime(),
     location: 'Mendoza',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/f/f5/Mk8icondaisy.png?width=1280'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/f/f5/Mk8icondaisy.png?width=1280',
+    role:'CLIENT_ROLE'
   },
   {
     fullname: 'Alice Johnson',
@@ -30,7 +32,8 @@ const usersStart = [
     password: 'password789',
     bornDate: new Date('1988-08-08').getTime(),
     location: 'San Luis',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/1/1d/Mk8icontoadette.png?width=325'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/1/1d/Mk8icontoadette.png?width=325',
+    role:'CLIENT_ROLE'
   },
   {
     fullname: 'Michael Smith',
@@ -41,7 +44,8 @@ const usersStart = [
     password: 'password101',
     bornDate: new Date('1983-04-10').getTime(),
     location: 'Córdoba',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/d/d1/Mk8iconrosalina.png?width=1280'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/d/d1/Mk8iconrosalina.png?width=1280',
+    role:'CLIENT_ROLE'
   },
   {
     fullname: 'Emily Johnson',
@@ -52,7 +56,8 @@ const usersStart = [
     password: 'password202',
     bornDate: new Date('1995-02-15').getTime(),
     location: 'Buenos Aires',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/5/59/Mk8iconpeach.png?width=325'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/5/59/Mk8iconpeach.png?width=325',
+    role:'CLIENT_ROLE'
   },
   {
     fullname: 'Daniel Lee',
@@ -63,7 +68,8 @@ const usersStart = [
     password: 'password303',
     bornDate: new Date('1989-07-07').getTime(),
     location: 'Mendoza',
-    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/bf/Mk8iconmario.png?width=325'
+    image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/b/bf/Mk8iconmario.png?width=325',
+    role:'CLIENT_ROLE'
   },
   // {
   //   fullname: 'Samantha Davis',
@@ -191,8 +197,8 @@ userForm.addEventListener("submit", (evt) => {
     bornDate: new Date(el.bornDate.value).getTime(),
     location: el.location.value,
     id: id,
-    image: el.image.value
-
+    image: el.image.value,
+    role:'CLIENT_ROLE'
   }
 
   // Tenemos 2 posibles acciones a realizar
@@ -260,7 +266,7 @@ searchInput.addEventListener('keyup', (eventito) => {
 
     return nombre.includes(inputValue)
 
-
+    
   })
 
 
